@@ -1,50 +1,30 @@
 package com.narxoz.rpg.character;
+import com.narxoz.rpg.equipment.Weapon;
+import com.narxoz.rpg.equipment.Armor;
+import com.narxoz.rpg.equipment.EquipmentFactory;
 
-/**
- * Example concrete implementation of a Character.
- *
- * This is provided as a reference to help you get started.
- * Study this implementation, then create similar classes for Mage, Archer, etc.
- *
- * Notice:
- * - How attributes are initialized
- * - How methods are implemented
- * - The structure you should follow for other character types
- *
- * TODO: Create similar implementations for:
- * - Mage (high mana/intelligence, low health/strength)
- * - Archer (balanced stats, ranged combat)
- * - (Optional) Additional classes: Rogue, Paladin, etc.
- */
 public class Warrior implements Character {
 
-    private String name;
-    private int health;
-    private int mana;
-    private int strength;
-    private int intelligence;
+    private final String name;
+    private final int health = 150;
+    private final int mana = 30;
+    private final int strength = 80;
+    private final int intelligence = 20;
 
-    // TODO: Add fields for equipped weapon and armor
-    // Think: Should Warrior know about its equipment?
-
+    private Weapon weapon;
+    private Armor armor;
 
     public Warrior(String name) {
         this.name = name;
-        // Warrior stats: high health and strength, low mana and intelligence
-        this.health = 150;
-        this.mana = 30;
-        this.strength = 80;
-        this.intelligence = 20;
     }
 
-    // TODO: Implement methods from Character interface
-    // You need to define those methods in Character interface first!
+    @Override public String getName() { return name; }
+    @Override public int getHealth() { return health; }
+    @Override public int getMana() { return mana; }
+    @Override public int getStrength() { return strength; }
+    @Override public int getIntelligence() { return intelligence; }
 
-    // Example method structure:
-    public String getName() {
-        return name;
-    }
-
+    @Override
     public void displayStats() {
         System.out.println("=== " + name + " (Warrior) ===");
         System.out.println("Health: " + health);
@@ -53,14 +33,26 @@ public class Warrior implements Character {
         System.out.println("Intelligence: " + intelligence);
     }
 
+    @Override
     public void useSpecialAbility() {
         System.out.println(name + " uses BERSERKER RAGE! Strength temporarily increased!");
     }
 
-    // TODO: Add equipment-related methods
-    // Examples:
-    // - void equipWeapon(Weapon weapon)
-    // - void equipArmor(Armor armor)
-    // - void displayEquipment()
+    @Override public void equipWeapon(Weapon weapon) { this.weapon = weapon; }
+    @Override public void equipArmor(Armor armor) { this.armor = armor; }
 
+    @Override public Weapon getEquippedWeapon() { return weapon; }
+    @Override public Armor getEquippedArmor() { return armor; }
+
+    @Override
+    public void equipSet(EquipmentFactory factory) {
+        this.weapon = factory.createWeapon();
+        this.armor = factory.createArmor();
+    }
+
+    @Override
+    public void displayEquipment() {
+        if (weapon != null) System.out.println("Weapon: " + weapon.getWeaponInfo());
+        if (armor != null) System.out.println("Armor: " + armor.getArmorInfo());
+    }
 }

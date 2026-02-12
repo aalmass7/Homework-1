@@ -12,6 +12,9 @@ package com.narxoz.rpg.equipment;
  * Examples: defense, armor type, special properties, etc.
  */
 public interface Armor {
+    int getDefense();
+
+    String getArmorInfo();
 
     // TODO: Add armor behavior methods
     // Consider:
