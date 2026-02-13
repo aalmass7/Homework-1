@@ -9,4 +9,8 @@ public class KnightBlade implements Weapon{
     public String getWeaponInfo(){
         return "Knight Blade (Damage: 25)";
     }
+
+    public String getWeaponType() {
+        return "Blade";
+    }
 }

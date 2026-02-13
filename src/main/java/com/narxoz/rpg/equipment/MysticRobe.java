@@ -9,4 +9,8 @@ public class MysticRobe implements Armor{
     public String getArmorInfo(){
         return "Mystic Robe (Defense: 10, Mana Boost: 25 )";
     }
+
+    public String getArmorType() {
+        return "Robe";
+    }
 }

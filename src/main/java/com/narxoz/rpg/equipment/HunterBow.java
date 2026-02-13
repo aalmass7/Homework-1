@@ -9,4 +9,8 @@ public class HunterBow implements Weapon{
     public String getWeaponInfo(){
         return "Hunter Bow (Damage: 30, Long Range)";
     }
+
+    public String getWeaponType() {
+        return "Bow";
+    }
 }

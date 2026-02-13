@@ -7,4 +7,7 @@ public class ArcaneStaff implements Weapon{
     public String getWeaponInfo(){
         return "Arcane Staff (Damage: 15, Mana Boost: 20)";
     }
+    public String getWeaponType() {
+        return "Staff";
+    }
 }

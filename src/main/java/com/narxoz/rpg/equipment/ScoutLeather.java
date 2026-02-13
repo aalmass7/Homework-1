@@ -9,4 +9,9 @@ public class ScoutLeather implements Armor{
     public String getArmorInfo(){
         return "Scout Leather (Defense: 20, Agility Bonus)";
     }
+
+    public String getArmorType() {
+        return "Leather";
+    }
+
 }

@@ -9,4 +9,8 @@ public class KnightPlate implements Armor{
     public String getArmorInfo(){
         return "Knight Plate (Defense: 30)";
     }
+
+    public String getArmorType() {
+        return "Plate";
+    }
 }
